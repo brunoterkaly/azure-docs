@@ -37,6 +37,22 @@ Before you can deploy the solution accelerator, you must sign in to your Azure s
 ```cmd/sh
 pcs login
 ```
+On Ubuntu you may run into errors:
+
+
+```
+/usr/bin/env: ‘node\r’: No such file or directory
+```
+
+It's the "index.js" file. It's encoded with Windows end-line characters.
+
+Here's what I did:
+
+```
+sudo apt install dos2unix
+dos2unix /usr/local/lib/node_modules/iot-solutions/publish/index.js`
+dos2unix -n /usr/local/lib/node_modules/iot-solutions/publish/index.js /tmp/index.js
+```
 
 Follow the on-screen instructions to complete the sign-in process.
 
